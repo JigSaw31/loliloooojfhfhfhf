@@ -1,0 +1,21 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+
+    <div class="row">
+        <h1 class="col-lg-12">Bienvenue dans votre espace administrateur !</h1>
+    </div>
+    <br><br>
+    <div class="bt switchdish col-lg-12">
+        <a class="btn col-lg-6 btn-primary"  href="{{ path('ft_website_admin_dish_index') }}" role="button">Consulter/Modifier/Supprimer Plats</a>
+    </div>
+    <br><br>
+    <div class="bt switchnews col-lg-12">
+        <a class="btn col-lg-6 btn-primary" style="text-align: center" href="{{ path('ft_website_admin_news_index') }}" role="button">Consulter/Modifier/Supprimer News</a>
+    </div>
+
+
+
+
+
+{% endblock %}

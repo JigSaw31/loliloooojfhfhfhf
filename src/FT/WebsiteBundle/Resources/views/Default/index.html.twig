@@ -1,0 +1,33 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Accueil | Fatiha Traiteur Oriental Colomiers{% endblock %}
+
+{% block body %}
+    <section id="accueil">
+        <div class="row">
+            <div class="banner col-lg-12">
+                <img class="banner" src="{{ asset('bundles/ftwebsite/assets/images/spices.jpeg') }}" alt="Epices">
+            </div>
+        </div>
+
+        <article id="art1">
+            <div class="row">
+                <div class="presentation col-lg-12">
+                    <p class="description">Fini le temps des pizzas, des hamburgers et des kebabs ! <br>
+                        Goûtez à une cuisine <span>orientale</span> : </br>
+                        <span>A</span>uthentique, <span>F</span>raîche et de <span>Q</span>ualité !
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <article id="art2">
+            <div class="row">
+                <div class="presentation1 col-lg-12">
+                    <p class="modalites">Livraison à domicile et sur votre lieu de travail<br>Création évènementielle à domicile </p>
+                </div>
+            </div>
+        </article>
+    </section>
+
+{% endblock %}

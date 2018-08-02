@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Fatiha Traiteur Oriental Colomiers{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('bundles/ftwebsite/assets/style1.css') }}" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Amatic+SC|Pacifico|Yanone+Kaffeesatz" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<div class="container">
+    <!-- Header -->
+    <header>
+        <div class="row">
+            <div class="logo col-lg-12">
+                <img class="logo" src="{{ asset('bundles/ftwebsite/assets/images/logo2.png')  }}" alt="logo_fatiha">
+            </div>
+            <div class="titre col-lg-12">
+                <h1><span>T</span>raiteur <span>O</span>riental <span>C</span>olomiers</h1>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
+        <a class="navbar-brand" href="">
+            <img src="{{ asset('bundles/ftwebsite/assets/images/logo2.png')  }}" alt="logo" style="width:40px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('ft_website_homepage') }}"><span>ACCUEIL</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=""><span>LA CARTE</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('ft_website_news_home') }}"><span>NEWS</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=""><span>CONTACT</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {% block body %}
+    {% endblock %}
+    <footer>
+        <section id="footer">
+            <div class="row">
+                <div class="facebook col-lg-12">
+                    <h4 class="facebook_desc">Suivez-moi aussi sur Facebook :</h4></br>
+                    <a href="https://www.facebook.com/Fatiha-Traiteur-132612797402966/">
+                        <img class="facebook" src="{{ asset('bundles/ftwebsite/assets/images/facebook.png') }}">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="footer col-lg-12">
+                    <h6 class="copyright">Site réalisé par BODENES Thomas © </h6>
+                </div>
+            </div>
+        </section>
+    </footer>
+</div>
+
+</html>

@@ -1,0 +1,46 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}La carte | Fatiha Traiteur Oriental Colomiers{% endblock %}
+
+{% block body %}
+    <section id="carte">
+
+        {% set compteur = 0 %}
+
+    {% for dish in listdish %}
+
+            {% if compteur % 2 != 0 %}
+
+            <article id="magret_part">
+            <div class="row">
+            <div class="entree col-lg-4">
+                <img src="{{ asset(dish.image.webPath) }}" class="img-fluid"/>
+            </div>
+            <div class="presentation1 col-lg-8">
+                <p class="descplat_m">{{ dish.description }} <br>{{ dish.price }} €</p>
+            </div>
+            </div>
+            </article>
+
+            {% endif %}
+
+        {% if compteur % 2 == 0 %}
+            <article id="tajine_part">
+                <div class="row">
+                    <div class="presentation1 col-lg-8">
+                        <p class="descplat_t">{{ dish.description }}<br>{{ dish.price }} €</p>
+                    </div>
+                    <div class="lol col-lg-4" style="width: 150px ">
+                        <img src="{{ asset(dish.image.webPath) }}" class="img-fluid"/>
+                    </div>
+                </div>
+            </article>
+
+        {% endif %}
+        {% set compteur = compteur+1 %}
+
+    {% endfor %}
+
+
+    </section>
+{% endblock %}

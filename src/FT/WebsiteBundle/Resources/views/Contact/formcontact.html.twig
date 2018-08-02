@@ -1,0 +1,38 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+
+
+    <section id="formulaire">
+        <div class="row">
+            <div class="desc col-lg-2"></div>
+            <div class="formulaire col-lg-8">
+                {{ form_errors(form) }}
+                <h4 class="intro_form">Une question ? Une demande d'informations ? Une commande ? Contactez-moi !</h4></br>
+            <div class="form-group">
+                {{ form_widget(form.lname, { 'attr': {'placeholder': 'Nom','class': 'form-control'} }) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.fname, { 'attr': {'placeholder': 'Prénom','class': 'form-control'} }) }}
+            </div>
+            <div class="form-group">
+
+                {{ form_widget(form.phone, { 'attr': {'placeholder': 'Numéro de téléphone','class': 'form-control'} }) }}
+
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.mail, { 'attr': {'placeholder': 'E-mail','class': 'form-control'} }) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.content, { 'attr': {'placeholder': 'Votre Message','class': 'form-control'} }) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.save, { 'attr': {'class': 'btn btn-primary'} }) }}
+            </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

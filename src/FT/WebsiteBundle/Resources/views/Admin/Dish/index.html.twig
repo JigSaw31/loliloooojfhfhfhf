@@ -1,0 +1,44 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+    <section id="dishAdmin">
+        <div class="row">
+            <div class="titleAdminDish col-lg-12">
+                <h2>Tableau des plats <i class="fas fa-utensils"></i></h2>
+
+            </div>
+            <div class="buttonAdd col-lg-12">
+                <a class="btn btn-success" href="{{ path('ft_website_dish_add') }}" role="button">Ajouter un plat</a>
+            </div>
+            <br><br>
+            <div class="col-lg-12">
+                <table class="table table-hover ">
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Nom du plat</th>
+                            <th scope="col">Description du plat</th>
+                            <th scope="col">Prix du plat</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for dish in listdish %}
+                    <tr>
+                        <td>{{ dish.name }}</td>
+                        <td>{{ dish.description }}</td>
+                        <td>{{ dish.price }}</td>
+                        <td><a class="btn btn-primary" href="{{ path('ft_website_dish_edit', { 'id': dish.id}) }}" role="button"><i class="fas fa-edit"></i></a>
+                        <a class="btn btn-danger" href="{{ path('ft_website_dish_delete', { 'id': dish.id}) }}" role="button"><i class="fas fa-trash-alt"></i></a></td>
+                        </td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+    </div>
+        </div>
+        </div>
+
+    </section>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Les News | Fatiha Traiteur Oriental Colomiers{% endblock %}
+
+{% block body %}
+
+    {% for news in listnews %}
+
+    <div class="row mx-0">
+        <div class="carousel col-lg-4 d-flex" style="height: 434px; justify-content: center; align-items: center; background-color: #e9ecef; padding: 0px">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="height: 220px; width: 310px">
+                <div class="carousel-inner">
+                    {% for image in news.images %}
+                        <div class="carousel-item {%if loop.index0 == 0%} active {%endif%}">
+                            <!-- le reste des images si sup à 1-->
+                            <img class="img-fluid" style="height: 220px;" src="{{ asset(image.webPath) }}" alt="{{ asset(image.alt) }}">
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+            <div class="jumbotron col-lg-8 d-flex" style="height: 434px; justify-content: center; align-items: center;">
+                <div class="in-jumbotron">
+                    <h1 class="display-4">{{ news.title}}</h1>
+                    <p class="lead">{{ news.date|date('d-m-y') }}</p>
+                    <hr class="my-4">
+                    <p>{{  news.content|truncate(100) }}</p>
+                    <p class="lead">
+                    <a class="btn btn-danger btn-lg" href="#" role="button">Lire la news</a>
+                    </p>
+                </div>
+            </div>
+    </div>
+
+    {% endfor %}
+  {% endblock %}

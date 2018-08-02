@@ -1,0 +1,52 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+
+
+
+    {{ form_start(form) }}
+
+
+    <section id="formulaire">
+        <div class="row">
+            <div class="desc col-lg-2"></div>
+            <div class="formulaire col-lg-8">
+                <h4 class="intro_form">C'est ici que vous pouvez ajouter un plat à votre carte</h4></br>
+                {% if not form.vars.valid %}
+                    <div class="alert alert-warning" role="alert">
+                        {{ form_errors(form) }}
+                        {{ form_errors(form.name) }}
+                        {{ form_errors(form.description) }}
+                        {{ form_errors(form.price) }}
+                        {{ form_errors(form.image.file) }}
+                        {{ form_errors(form.image.alt) }}
+                    </div>
+                {% endif %}
+                <div class="form-group" {% if form.name.vars.errors|length > 0 %} style="border-radius: 4px;border: 2px solid red !important;"{% endif %}>
+                    {{ form_widget(form.name, { 'attr': {'placeholder': 'Nom du plat','class': 'form-control'} }) }}
+                </div>
+                <div class="form-group"{% if form.description.vars.errors|length > 0 %}style="border-radius: 4px;border: 2px solid red !important;"{% endif %}>
+                    {{ form_widget(form.description, { 'attr': {'placeholder': 'Description du plat','class': 'form-control'} }) }}
+                </div>
+                <div class="input-group mb-3" {% if form.price.vars.errors|length > 0 %} style="border-radius: 4px; border: 2px solid red !important;"{% endif %}>
+                    {{ form_widget(form.price, { 'attr': {'placeholder': 'Prix du plat','class': 'form-control'} }) }}
+                    <div class="input-group-append">
+                        <span class="input-group-text">€</span>
+                    </div>
+                </div>
+
+                <div class="form-group" {% if form.image.file.vars.errors|length > 0 %} style="border-radius: 4px; border: 2px solid red !important;"{% endif %}>
+                    {{ form_widget(form.image.file, { 'attr': {'placeholder': 'Votre Message','class': 'form-control'} }) }}
+                </div>
+                <div class="form-group" {% if form.image.alt.vars.errors|length > 0 %} style="border-radius: 4px; border: 2px solid red !important;"{% endif %}>
+                    {{ form_widget(form.image.alt, { 'attr': {'placeholder': 'Donnez un nom à votre image','class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_widget(form.save, { 'attr': {'class': 'btn btn-primary'} }) }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{ form_end(form) }}
+{% endblock %}

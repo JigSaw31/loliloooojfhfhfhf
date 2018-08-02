@@ -1,0 +1,31 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+
+    <h2>Tableau des plats</h2>
+
+    <a class="btn btn-success" href="{{ path('ft_website_news_add') }}" role="button">Ajouter une News</a>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Titre de la news</th>
+            <th>Contenu de la news</th>
+            <th>Date d'ajout</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for news in listnews %}
+            <tr>
+                <td>{{ news.title }}</td>
+                <td>{{ news.content }}</td>
+                <td>{{ news.date|date('d-m-y') }}</td>
+                <td><a class="btn btn-primary" href="{{ path('ft_website_news_edit', { 'id': news.id}) }}" role="button">Modifier</a></td>
+                <td><a class="btn btn-danger" href="{{ path('ft_website_news_delete', { 'id': news.id}) }}" role="button">Supprimer</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
