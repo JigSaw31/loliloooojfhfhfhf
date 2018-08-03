@@ -40,10 +40,18 @@ class ContactController extends Controller
     {
         $message = \Swift_Message::newInstance()
 
-            ->setSubject('Vous avez reçu un message de votre site !')
-            ->setFrom('shahroznawaz156@gmail.com')
+            ->setSubject('Vous avez reçu un message d\'un utilisateur !')
+            ->setFrom('fatiha-traiteur-website@admin.fr')
             ->setTo('xproz31@gmail.com')
-            ->setBody("votre nom est : ".$data->getLname(),'text/html');
+            ->setBody(
+                $this->renderView(
+                    '@FTWebsite/BodyMail/bodymail.html.twig',
+                    array('lname' => $data->getLname(),
+                        'fname' => $data->getFname(),
+                        'phone' => $data->getPhone(),
+                        'mail' => $data->getMail(),
+                        'content' => $data->getContent())),
+                'text/html');
 
         $this->get('mailer')->send($message);
     }

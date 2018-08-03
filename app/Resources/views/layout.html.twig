@@ -30,14 +30,14 @@
         </div>
     </header>
 
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top d-flex" style="justify-content: space-between;">
         <a class="navbar-brand" href="{{ path('ft_website_homepage') }}">
             <img src="{{ asset('bundles/ftwebsite/assets/images/logo2.png')  }}" alt="logo" style="width:40px;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <div class="collapse navbar-collapse" id="collapsibleNavbar" style="flex: 1 0">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('ft_website_homepage') }}"><span>ACCUEIL</span></a>
@@ -51,9 +51,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('ft_website_contact') }}"><span>CONTACT</span></a>
                 </li>
-                {% if is_granted('ROLE_ADMIN') %}
-                <li class="nav-item-right">
-                    <a class="nav-link" href="{{ path('ft_website_admin_home') }}"><span>ACCUEIL ADMIN</span></a>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar2" style="flex: 0 1;">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('ft_website_admin_home') }}"><span><i class="fas fa-user-clock"></i></span></a>
+                </li>
+                {% if is_granted ('ROLE_ADMIN') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('fos_user_security_logout') }}"><span><i class="fas fa-sign-out-alt"></i></span></a>
                 </li>
                 {% endif %}
             </ul>
